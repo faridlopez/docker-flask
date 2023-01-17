@@ -174,3 +174,8 @@ services:
 networks:
   vnet:
 ```
+
+## Execute docker-compose
+```
+docker-compose up -d
+```
