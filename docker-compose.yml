@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  backend:
+    container_name: back_container
+    image: back_image
+    command: gunicorn -w 4 -b 0.0.0.0:5000 -m 007 'wsgi:app'
+    env_file: ./.env.dev
+    tty: true
+    build:
+      context: backend_home
+    volumes:
+      - "./backend_home:/app"
+    ports:
+      - 5050:5000
+    networks:
+      - vnet
+networks:
+  vnet:
