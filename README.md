@@ -8,6 +8,8 @@ Techs to use:
 - Flask
 - Gunicorn
 
+To tun this project you should have installed Docker and Python (3.9)
+
 ### Create Folder Structure for the applicacion
 
     .
