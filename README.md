@@ -103,18 +103,18 @@ pip freeze > requirements.txt
 cp requirements.txt requirements.in
 ```
 
-## Create requirements_dev.txt
+## Create a file requirements_dev.txt, that is only going to have the following line.
 ```
 pip-tools
 ```
-Note: The file is only going to content that line pip-tools
+Note: The file is only going to content that line pip-tools, it is a way to keep the dev packages in a differente file.
 
-## Install requirements_dev.txt:
+## Install the packages in requirements_dev.txt:
 ```
 pip install -r requirements_dev.txt
 ```
 
-## Create requirements.txt based on requirements.in
+## Create the file requirements.txt based on the file  requirements.in
 ```
 pip-compile --output-file=requirements.txt requirements.in
 ```
@@ -124,7 +124,7 @@ pip-compile --output-file=requirements.txt requirements.in
 - Remove the packages that are rependencies of requirements.txt and another packages.
 cause we only want the dependencies that are only required by requirements.txt file.
 
-## Create requirements.txt and install packages
+## Create the file requirements.txt and install packages
 ```
 pip-compile --output-file=requirements.txt requirements.in
 ```
