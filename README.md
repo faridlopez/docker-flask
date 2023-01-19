@@ -8,6 +8,8 @@ Techs to use:
 - Flask
 - Gunicorn
 
+To tun this project you should have installed Docker and Python (3.9)
+
 ### Create Folder Structure for the applicacion
 
     .
@@ -17,9 +19,7 @@ Techs to use:
     │   ├── backend_home              # Base folder for Python project
     │   │   ├── Dockerfile            # Dockerfile for Python project
     │   │   ├── app.py                # Base file for backend services
-    │   │   ├── requirements.in       # Base req file
     │   │   ├── requirements.txt      # Req file
-    │   │   ├── requirements_dev.txt  # Dev req file
     │   │   ├── venv                  # Python Virtual Environment
     │   │   └── wsgi.py               # wsgi file.
     └── └── docker-compose.yml        # Definition of docker containers
@@ -28,8 +28,13 @@ Techs to use:
 ## Create new venv for Python 3.9: 
 ```
 cd DockerProject/backend_home
-python3.9 -venv venv
+python3.9 -m venv venv
 ```
+Note: if this commands fails try
+```
+python3.9 -m venv /path/to/directory
+```
+Replace /path/to/directory by the actual directory where you are going to install the virtual environment.
 
 ## Activate virtual Environment: 
 ```
@@ -63,16 +68,15 @@ flask run
 pip install gunicorn
 ```
 
-## Run gunicorn: 
-```
-gunicorn -w 4 'app:app'
-```
-(If the file name is called app.py)
-
-## Bind ip to all ips: 
+## Run gunicorn, binding ip to all ips: 
 ```
 gunicorn -w 4 -b 0.0.0.0:5050 'app:app'
 ```
+(If the file name is called app.py)
+
+After this you can check in your web browser:
+http://127.0.0.1:5050/
+And you should see the Hello World
 
 ## Create wsgi.py file:
 ```
@@ -90,41 +94,6 @@ gunicorn -w 4 -b 0.0.0.0:5050 -m 007 'wsgi:app'
 ## Create requirements.txt file:
 ```
 pip freeze > requirements.txt
-```
-
-## Create requirements.in based on requirements.txt
-```
-cp requirements.txt requirements.in
-```
-
-## Create requirements_dev.txt
-```
-pip-tools
-```
-
-## Install requirements_dev.txt:
-```
-pip install -r requirements_dev.txt
-```
-
-## Create requirements.txt based on requirements.in
-```
-pip-compile --output-file=requirements.txt requirements.in
-```
-
-## Clean req files
-- Clean requirements.in
-- Remove the packages that are rependencies of requirements.txt and another packages.
-cause we only want the dependencies that are only required by requirements.txt file.
-
-## Create requirements.txt and install packages
-```
-pip-compile --output-file=requirements.txt requirements.in
-```
-
-## Install packages
-```
-pip install -r requirements.txt
 ```
 
 ## Create Dockerfile
@@ -174,3 +143,9 @@ services:
 networks:
   vnet:
 ```
+
+## Execute docker-compose
+```
+docker-compose up -d
+```
+After this you can check in your web browser again: http://127.0.0.1:5050/ And you should see the Hello World running from the Docker Container.
