@@ -122,6 +122,12 @@ RUN pip install -r requirements.txt
 COPY . /app/
 ```
 
+## Create the DockerProject/.env.dev file
+In the DockerProject create the file .env.dev with the following content:
+```
+FLASK_DEBUG=1
+```
+
 ## Create docker-compose file
 ```
 version: '3.8'
