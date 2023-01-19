@@ -183,3 +183,4 @@ networks:
 ```
 docker-compose up -d
 ```
+After this you can check in your web browser again: http://127.0.0.1:5050/ And you should see the Hello World running from the Docker Container.
