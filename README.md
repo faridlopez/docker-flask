@@ -32,6 +32,11 @@ To tun this project you should have installed Docker and Python (3.9)
 cd DockerProject/backend_home
 python3.9 -m venv venv
 ```
+Note: if this commands fails try
+```
+python3.9 -m venv /path/to/directory
+```
+Replace /path/to/directory by the actual directory where you are going to install the virtual environment.
 
 ## Activate virtual Environment: 
 ```
