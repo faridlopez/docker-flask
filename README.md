@@ -96,7 +96,7 @@ gunicorn -w 4 -b 0.0.0.0:5050 -m 007 'wsgi:app'
 pip freeze > requirements.txt
 ```
 
-## Create Dockerfile
+## Create Dockerfile inside the backend_home folder
 ```
 FROM python:3.9
 
@@ -122,7 +122,13 @@ RUN pip install -r requirements.txt
 COPY . /app/
 ```
 
-## Create docker-compose file
+## Create the DockerProject/.env.dev file
+In the DockerProject folder create the file .env.dev with the following content:
+```
+FLASK_DEBUG=1
+```
+
+## Create docker-compose file in the DockerProject folder
 ```
 version: '3.8'
 services:
@@ -145,6 +151,7 @@ networks:
 ```
 
 ## Execute docker-compose
+From the folder DockerProject, execute the following command:
 ```
 docker-compose up -d
 ```
