@@ -70,16 +70,12 @@ flask run
 pip install gunicorn
 ```
 
-## Run gunicorn: 
-```
-gunicorn -w 4 'app:app'
-```
-(If the file name is called app.py)
-
-## Bind ip to all ips: 
+## Run gunicorn, binding ip to all ips: 
 ```
 gunicorn -w 4 -b 0.0.0.0:5050 'app:app'
 ```
+(If the file name is called app.py)
+
 After this you can check in your web browser:
 http://127.0.0.1:5050/
 And you should see the Hello World
