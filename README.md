@@ -104,6 +104,7 @@ cp requirements.txt requirements.in
 ```
 pip-tools
 ```
+Note: The file is only going to content that line pip-tools
 
 ## Install requirements_dev.txt:
 ```
