@@ -28,7 +28,7 @@ Techs to use:
 ## Create new venv for Python 3.9: 
 ```
 cd DockerProject/backend_home
-python3.9 -venv venv
+python3.9 -m venv venv
 ```
 
 ## Activate virtual Environment: 
@@ -73,6 +73,9 @@ gunicorn -w 4 'app:app'
 ```
 gunicorn -w 4 -b 0.0.0.0:5050 'app:app'
 ```
+After this you can check in your web browser:
+http://127.0.0.1:5050/
+And you should see the Hello World
 
 ## Create wsgi.py file:
 ```
